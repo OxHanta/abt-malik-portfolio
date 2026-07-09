@@ -1,0 +1,38 @@
+packages:
+  "framer-motion": "For cinematic page transitions, scroll reveals, and fluid animations"
+  "react-hook-form": "For robust contact form state management"
+  "@hookform/resolvers": "For zod validation integration in the form"
+  "lucide-react": "For sleek, consistent UI icons"
+  "clsx": "For conditional class names"
+  "tailwind-merge": "For safely merging tailwind classes"
+
+images:
+  - path: "artifacts/portfolio/public/images/hero-bg.png"
+    description: "Dark cinematic atmospheric abstract background, moody lighting, smoke and neon rim light, deep blacks and subtle indigo"
+    aspect_ratio: "16:9"
+  - path: "artifacts/portfolio/public/images/profile.png"
+    description: "Moody cinematic portrait of a creative artist in a dark studio, rim lighting, editorial photography style"
+    aspect_ratio: "3:4"
+  - path: "artifacts/portfolio/public/images/project-1.png"
+    description: "Abstract graphic design poster, bold modern typography, dark cinematic style, high contrast"
+    aspect_ratio: "16:9"
+  - path: "artifacts/portfolio/public/images/project-2.png"
+    description: "Moody drone footage still, aerial view of a dark cyberpunk city at night with subtle neon lights"
+    aspect_ratio: "16:9"
+  - path: "artifacts/portfolio/public/images/project-3.png"
+    description: "Vibe coded aesthetic abstract visual, dark gradients, glassmorphism, mysterious atmosphere"
+    aspect_ratio: "16:9"
+  - path: "artifacts/portfolio/public/images/project-4.png"
+    description: "Editorial fashion video still, high fashion, stark shadows, dramatic lighting"
+    aspect_ratio: "16:9"
+  - path: "artifacts/portfolio/public/images/project-5.png"
+    description: "Minimalist brutalist web design mockup, dark mode, striking typography"
+    aspect_ratio: "16:9"
+  - path: "artifacts/portfolio/public/images/project-6.png"
+    description: "Cinematic color grading showcase, split screen before and after, moody atmospheric colors"
+    aspect_ratio: "16:9"
+
+notes:
+  - This is a frontend-only portfolio, no backend required.
+  - Using public Google sample videos for the video player section.
+  - Contact form uses local state and toast notifications to simulate submission.

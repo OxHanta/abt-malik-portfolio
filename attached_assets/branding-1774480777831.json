@@ -1,0 +1,121 @@
+{
+  "colorScheme": "light",
+  "fonts": [
+    {
+      "family": "Inter Display",
+      "role": "display"
+    },
+    {
+      "family": "DM Mono",
+      "role": "monospace"
+    },
+    {
+      "family": "Inter",
+      "role": "body"
+    }
+  ],
+  "colors": {
+    "primary": "#0000EE",
+    "accent": "#FF442B",
+    "background": "#FFFFFF",
+    "textPrimary": "#FF442B",
+    "link": "#FF442B"
+  },
+  "typography": {
+    "fontFamilies": {
+      "primary": "Inter",
+      "heading": "Inter Display"
+    },
+    "fontStacks": {
+      "heading": [
+        "Inter Display",
+        "sans-serif"
+      ],
+      "body": [
+        "sans-serif"
+      ],
+      "paragraph": [
+        "Inter Display",
+        "sans-serif"
+      ]
+    },
+    "fontSizes": {
+      "h1": "280px",
+      "h2": "72px",
+      "body": "18px"
+    }
+  },
+  "spacing": {
+    "baseUnit": 4,
+    "borderRadius": "0px"
+  },
+  "components": {
+    "buttonPrimary": {
+      "background": "#000000",
+      "textColor": "#0000EE",
+      "borderRadius": "6px",
+      "borderRadiusCorners": {
+        "topLeft": "6px",
+        "topRight": "6px",
+        "bottomRight": "6px",
+        "bottomLeft": "6px"
+      },
+      "shadow": "none"
+    },
+    "buttonSecondary": {
+      "background": "#F5F5F5",
+      "textColor": "#0000EE",
+      "borderRadius": "6px",
+      "borderRadiusCorners": {
+        "topLeft": "6px",
+        "topRight": "6px",
+        "bottomRight": "6px",
+        "bottomLeft": "6px"
+      },
+      "shadow": "none"
+    }
+  },
+  "images": {
+    "logo": null,
+    "favicon": "File saved at: attached_assets/favicon.png",
+    "ogImage": "File saved at: attached_assets/ogImage.png"
+  },
+  "__llm_button_reasoning": {
+    "primary": {
+      "index": 0,
+      "text": "Get template",
+      "reasoning": "Button #0 with text 'Get template' has a dark background (#000000) and action-oriented text, making it stand out as the primary CTA."
+    },
+    "secondary": {
+      "index": 2,
+      "text": "More templates",
+      "reasoning": "Button #2 with text 'More templates' has a different background color (#F5F5F5) from the primary button and serves as a secondary action."
+    },
+    "confidence": 0.95
+  },
+  "personality": {
+    "tone": "modern",
+    "energy": "medium",
+    "targetAudience": "designers and developers"
+  },
+  "designSystem": {
+    "framework": "custom",
+    "componentLibrary": ""
+  },
+  "confidence": {
+    "buttons": 0.95,
+    "colors": 0.9,
+    "overall": 0.925
+  },
+  "__llm_metadata": {
+    "logoSelection": {
+      "llmCalled": false,
+      "llmSucceeded": false,
+      "finalSource": "none"
+    },
+    "buttonClassification": {
+      "llmCalled": true,
+      "llmSucceeded": true
+    }
+  }
+}
