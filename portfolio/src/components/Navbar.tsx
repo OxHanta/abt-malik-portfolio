@@ -16,7 +16,7 @@ export function Navbar() {
     const onScroll = () => {
       const y = window.scrollY;
       setIsScrolled(y > 20);
-      
+
       // hide when scrolling down past 80px, show when scrolling up
       if (y > lastY.current && y > 80) {
         setHidden(true);
@@ -30,6 +30,7 @@ export function Navbar() {
   }, []);
 
   const navLinks = [
+    { name: "Home", href: "/", isHash: false },
     { name: "About", href: isHome ? "#about" : "/#about", isHash: true },
     { name: "Projects", href: isHome ? "#projects" : "/#projects", isHash: true },
     { name: "Aerials", href: isHome ? "#aerials" : "/#aerials", isHash: true },
@@ -61,7 +62,7 @@ export function Navbar() {
     <>
       <motion.nav
         initial={{ y: -100 }}
-        animate={{ 
+        animate={{
           y: hidden ? -100 : 0,
           backgroundColor: isScrolled ? "rgba(11, 11, 11, 0.75)" : "rgba(0, 0, 0, 0)",
           backdropFilter: isScrolled ? "blur(12px)" : "blur(0px)",
@@ -76,9 +77,13 @@ export function Navbar() {
         <div className="max-w-7xl mx-auto px-6 md:px-10 flex justify-between items-center">
           <div className="flex-1">
             <Link href="/">
-              <span className="font-['DM_Mono'] text-[11px] uppercase tracking-widest text-white hover:opacity-60 transition-opacity cursor-pointer">
-                © 0xHanta
-              </span>
+              <motion.span
+                className="font-['DM_Mono'] text-[11px] uppercase tracking-widest text-white hover:opacity-60 transition-opacity cursor-pointer inline-block"
+                whileTap={{ y: 4, opacity: 0.6 }}
+                transition={{ duration: 0.15, ease: "easeOut" }}
+              >
+                Abt Malik
+              </motion.span>
             </Link>
           </div>
 

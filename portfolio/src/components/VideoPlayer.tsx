@@ -235,6 +235,8 @@ export function VideoPlayer({ src, isOpen, onClose, title = "Featured Reel" }: V
               onLoadedMetadata={handleLoadedMetadata}
               autoPlay
               playsInline
+              controlsList="nodownload"
+              disablePictureInPicture
             />
 
             {/* Custom Control Bar */}

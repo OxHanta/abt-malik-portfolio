@@ -9,35 +9,19 @@ import { Footer } from "@/components/Footer";
 const FOOTAGE_CLIPS = [
   {
     id: 1,
-    title: "Featured Aerial Reel",
-    src: "https://res.cloudinary.com/dba2kof3v/video/upload/v1777849250/0319EBA1-0D5B-445B-BEB2-6A18DFCF7F47_wnaerh.mp4",
-    poster: "https://res.cloudinary.com/dba2kof3v/video/upload/v1777849250/0319EBA1-0D5B-445B-BEB2-6A18DFCF7F47_wnaerh.jpg",
+    title: "Wizkid — Greater Lagos Concert",
+    src: "https://res.cloudinary.com/dba2kof3v/video/upload/v1783638852/DJI_0487_1_hutdlp.mp4",
+    poster: "https://res.cloudinary.com/dba2kof3v/video/upload/v1783638852/DJI_0487_1_hutdlp.jpg",
     aspect: "aspect-video",
-    description: "Featured camera raw drone footage edit."
+    description: "Aerial drone coverage of Wizkid performing at the Greater Lagos concert."
   },
   {
     id: 2,
-    title: "Tokyo Streets By Night",
-    src: "https://assets.mixkit.co/videos/preview/mixkit-downtown-tokyo-by-night-39726-large.mp4",
-    poster: "https://images.unsplash.com/photo-1540959733332-eab4deceeaf7?q=80&w=1200&auto=format&fit=crop",
+    title: "Raw to Edited",
+    src: "https://res.cloudinary.com/dba2kof3v/video/upload/v1783638482/Edited_1_fhr1z8.mp4",
+    poster: "https://res.cloudinary.com/dba2kof3v/video/upload/v1783638482/Edited_1_fhr1z8.jpg",
     aspect: "aspect-video",
-    description: "Highly saturated neon traffic trails and cityscape scans."
-  },
-  {
-    id: 3,
-    title: "Coniferous Canopy",
-    src: "https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-thick-forest-43105-large.mp4",
-    poster: "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1200&auto=format&fit=crop",
-    aspect: "aspect-video",
-    description: "Slow sweeping glide above endless dense green forests."
-  },
-  {
-    id: 4,
-    title: "Coastal Tide Volumetrics",
-    src: "https://assets.mixkit.co/videos/preview/mixkit-waves-crashing-on-rocks-from-above-43093-large.mp4",
-    poster: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop",
-    aspect: "aspect-video",
-    description: "Topological water contour scans and breaking whitewater waves."
+    description: "A before and after clip showcasing the raw drone footage to finished edit."
   }
 ];
 

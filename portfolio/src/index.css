@@ -107,3 +107,23 @@ html {
 *, *::before, *::after {
   cursor: none !important;
 }
+
+/* Allow native cursor for specific elements like 360 viewer in fullscreen */
+.force-cursor-grab, .force-cursor-grab * {
+  cursor: grab !important;
+}
+.force-cursor-grab:active, .force-cursor-grab *:active {
+  cursor: grabbing !important;
+}
+.force-cursor-pointer, .force-cursor-pointer * {
+  cursor: pointer !important;
+}
+
+/* Prevent dragging of images and videos */
+img, video, canvas {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-select: none;
+}

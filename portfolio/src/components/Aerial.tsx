@@ -6,18 +6,15 @@ import { ImageLightbox, type LightboxImage } from "@/components/ImageLightbox";
 import { VideoPlayer } from "@/components/VideoPlayer";
 
 const DRONE_IMGS = [
-  "https://images.unsplash.com/photo-1765475467677-579353b25ce0?q=80&w=1074&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1770770155448-8461474b4e7a?q=80&w=1074&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1767915701832-9cd6751fe4ff?q=80&w=627&auto=format&fit=crop",
+  "https://res.cloudinary.com/dba2kof3v/image/upload/v1783636943/insp_zehpw2.jpg",
+  "https://res.cloudinary.com/dba2kof3v/image/upload/v1783638042/Ozimbadwe_2_dowqgj.jpg",
+  "https://res.cloudinary.com/dba2kof3v/image/upload/v1783637933/port_mstwzu.jpg",
 ];
 
 const PHOTOS = [
-  { id: 1, aspect: "aspect-[16/10]", w: 420, src: DRONE_IMGS[0] },
-  { id: 2, aspect: "aspect-[4/3]", w: 420, src: DRONE_IMGS[1] },
-  { id: 3, aspect: "aspect-[16/10]", w: 420, src: DRONE_IMGS[2] },
-  { id: 4, aspect: "aspect-[3/2]", w: 420, src: DRONE_IMGS[0] },
-  { id: 5, aspect: "aspect-[16/10]", w: 420, src: DRONE_IMGS[1] },
-  { id: 6, aspect: "aspect-[4/3]", w: 420, src: DRONE_IMGS[2] },
+  { id: 1, aspect: "aspect-[16/10]", src: DRONE_IMGS[0] },
+  { id: 2, aspect: "aspect-[4/3]", src: DRONE_IMGS[1] },
+  { id: 3, aspect: "aspect-[16/10]", src: DRONE_IMGS[2] },
 ];
 
 // Lightbox image list (unique photos only)
@@ -111,9 +108,9 @@ export function Aerial() {
           </h3>
         </div>
 
-        {/* ── Scrollable photo strip ── */}
+        {/* ── Grid photo layout ── */}
         <div
-          className="w-full overflow-x-auto cursor-none select-none no-scrollbar px-6 md:px-10"
+          className="w-full cursor-none select-none px-6 md:px-10"
           onMouseEnter={() => {
             setLabel("View Shot");
           }}
@@ -122,13 +119,12 @@ export function Aerial() {
           }}
         >
           <div
-            className="flex items-stretch gap-4 w-max"
+            className="grid grid-cols-1 md:grid-cols-3 gap-6"
           >
             {PHOTOS.map((photo, i) => (
               <div
                 key={i}
-                style={{ width: photo.w, flexShrink: 0 }}
-                className={`relative ${photo.aspect} bg-[#161616] overflow-hidden group`}
+                className={`relative ${photo.aspect} bg-[#161616] overflow-hidden group rounded-lg`}
                 onClick={() => handleOpen(i)}
               >
                 <img

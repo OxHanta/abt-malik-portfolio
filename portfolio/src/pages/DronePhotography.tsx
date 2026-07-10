@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useLocation } from "wouter";
 import { motion } from "framer-motion";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ZoomIn, ZoomOut, Maximize, ChevronRight, ChevronLeft } from "lucide-react";
 import { useCursor } from "@/context/CursorContext";
 import { ImageLightbox, type LightboxImage } from "@/components/ImageLightbox";
 import { Navbar } from "@/components/Navbar";
@@ -10,47 +10,41 @@ import { Footer } from "@/components/Footer";
 import { Pannellum } from "pannellum-react";
 
 const DRONE_PHOTOS = [
+
   {
     id: 1,
-    title: "Cyberpunk Grid",
-    src: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=1200&auto=format&fit=crop",
+    title: "Land Inspection at Lekki Phase 1",
+    src: "https://res.cloudinary.com/dba2kof3v/image/upload/v1783636943/insp_zehpw2.jpg",
     aspect: "aspect-[16/10]",
-    caption: "Aerial view of a sprawling neon-lit urban grid at dusk."
+    caption: "Detailed aerial view of land inspection and surveying at Lekki Phase 1."
   },
   {
     id: 2,
-    title: "Emerald Canopy",
-    src: "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1200&auto=format&fit=crop",
+    title: "Victoria Island",
+    src: "https://res.cloudinary.com/dba2kof3v/image/upload/v1783638042/Ozimbadwe_2_dowqgj.jpg",
     aspect: "aspect-[4/3]",
-    caption: "Top-down view of dense pine forest in late autumn."
+    caption: "Aerial view of Victoria Island with boats moving across the lagoon and the city skyline in the background."
   },
   {
     id: 3,
-    title: "Azure Shore",
-    src: "https://images.unsplash.com/photo-1505118380757-91f5f5632de0?q=80&w=1200&auto=format&fit=crop",
+    title: "Apapa Port",
+    src: "https://res.cloudinary.com/dba2kof3v/image/upload/v1783637933/port_mstwzu.jpg",
     aspect: "aspect-[3/2]",
-    caption: "Volumetric scans of coral reefs and deep blue waters."
+    caption: "Apapa port bustling with different shipping containers."
   },
   {
     id: 4,
-    title: "High Sierra",
-    src: "https://images.unsplash.com/photo-1486916856992-e4db22c8df33?q=80&w=1200&auto=format&fit=crop",
-    aspect: "aspect-[4/3]",
-    caption: "Frozen ridge-line topography details."
+    title: "National Theater",
+    src: "https://res.cloudinary.com/dba2kof3v/image/upload/v1783636939/national_nps2b5.jpg",
+    aspect: "aspect-[16/10]",
+    caption: "Iconic aerial view of the National Theater."
   },
   {
     id: 5,
-    title: "Metropolis Glow",
-    src: "https://images.unsplash.com/photo-1519501025264-65ba15a82390?q=80&w=1200&auto=format&fit=crop",
-    aspect: "aspect-[16/10]",
-    caption: "Stark architectural geometry and lighting."
-  },
-  {
-    id: 6,
-    title: "Coastal Drift",
-    src: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop",
-    aspect: "aspect-[3/2]",
-    caption: "Ocean waves colliding with cliffs, viewed from above."
+    title: "Lagos Continental Hotel",
+    src: "https://res.cloudinary.com/dba2kof3v/image/upload/v1783637049/LC_btvr1c.jpg",
+    aspect: "aspect-[4/3]",
+    caption: "The Lagos Continental Hotel towering over the skyline."
   }
 ];
 
@@ -60,10 +54,50 @@ const LIGHTBOX_IMAGES: LightboxImage[] = DRONE_PHOTOS.map((photo) => ({
   caption: `${photo.title} · ${photo.caption}`
 }));
 
+const PANORAMAS = [
+  "https://res.cloudinary.com/dba2kof3v/image/upload/v1783635994/pan_1_zmrsyl.jpg",
+  "https://res.cloudinary.com/dba2kof3v/image/upload/v1783635984/pan_2_dshaww.jpg"
+];
+
 export default function DronePhotography() {
   const [, setLocation] = useLocation();
   const { setLabel } = useCursor();
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  // Panorama State
+  const [panoIndex, setPanoIndex] = useState(0);
+  const [hfov, setHfov] = useState(120);
+  const viewerContainerRef = useRef<HTMLDivElement>(null);
+  const panImageRef = useRef<any>(null);
+
+  const handleNextPano = () => {
+    setPanoIndex((prev) => (prev + 1) % PANORAMAS.length);
+  };
+
+  const handlePrevPano = () => {
+    setPanoIndex((prev) => (prev === 0 ? PANORAMAS.length - 1 : prev - 1));
+  };
+
+  const syncZoom = () => {
+    if (panImageRef.current && panImageRef.current.getViewer) {
+      setHfov(panImageRef.current.getViewer().getHfov());
+    }
+  };
+
+  const handleFullscreen = () => {
+    if (!document.fullscreenElement) {
+      viewerContainerRef.current?.requestFullscreen();
+    } else {
+      document.exitFullscreen();
+    }
+  };
+
+  const handleZoomChange = (newHfov: number) => {
+    setHfov(newHfov);
+    if (panImageRef.current && panImageRef.current.getViewer) {
+      panImageRef.current.getViewer().setHfov(newHfov);
+    }
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -72,6 +106,22 @@ export default function DronePhotography() {
   useEffect(() => {
     return () => {
       setLabel("");
+    };
+  }, []);
+
+  // Fix scroll jump when exiting full screen
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      if (!document.fullscreenElement && viewerContainerRef.current) {
+        // Small timeout to allow browser layout to settle after exiting fullscreen
+        setTimeout(() => {
+          viewerContainerRef.current?.scrollIntoView({ behavior: "instant", block: "center" });
+        }, 50);
+      }
+    };
+    document.addEventListener("fullscreenchange", handleFullscreenChange);
+    return () => {
+      document.removeEventListener("fullscreenchange", handleFullscreenChange);
     };
   }, []);
 
@@ -184,18 +234,80 @@ export default function DronePhotography() {
           </p>
         </div>
 
-        <div className="relative w-full aspect-[4/3] md:aspect-[21/9] rounded-2xl overflow-hidden border border-white/10 bg-[#161616] cursor-grab active:cursor-grabbing">
+        <div
+          ref={viewerContainerRef}
+          onMouseEnter={() => setLabel("Drag")}
+          onMouseLeave={() => setLabel("")}
+          onWheel={() => setTimeout(syncZoom, 50)}
+          className="relative w-full aspect-[4/3] md:aspect-[21/9] rounded-2xl overflow-hidden border border-white/10 bg-[#161616] group force-cursor-grab"
+        >
           <Pannellum
+            ref={panImageRef}
             width="100%"
             height="100%"
-            image="https://pannellum.org/images/alma.jpg"
+            image={PANORAMAS[panoIndex]}
             pitch={10}
             yaw={180}
-            hfov={110}
+            hfov={hfov}
             autoLoad
+            mouseZoom={true}
+            onMouseup={() => setTimeout(syncZoom, 50)}
             showZoomCtrl={false}
             showFullscreenCtrl={false}
           />
+
+          {/* Navigation Chevrons */}
+          <button
+            onClick={handlePrevPano}
+            onMouseEnter={() => setLabel("")}
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-black/40 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-[#FF442B] hover:border-[#FF442B] transition-all force-cursor-pointer opacity-0 group-hover:opacity-100"
+          >
+            <ChevronLeft size={24} />
+          </button>
+
+          <button
+            onClick={handleNextPano}
+            onMouseEnter={() => setLabel("")}
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-black/40 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-[#FF442B] hover:border-[#FF442B] transition-all force-cursor-pointer opacity-0 group-hover:opacity-100"
+          >
+            <ChevronRight size={24} />
+          </button>
+
+          {/* Custom Toolbar Overlay */}
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex items-center gap-4 px-6 py-3 rounded-full bg-black/30 backdrop-blur-md border border-white/20 shadow-2xl transition-opacity duration-300">
+            <button
+              onClick={() => handleZoomChange(Math.min(120, hfov + 10))}
+              className="text-white hover:text-[#FF442B] transition-colors p-1 force-cursor-pointer"
+            >
+              <ZoomOut size={18} />
+            </button>
+
+            <input
+              type="range"
+              min="50"
+              max="120"
+              value={170 - hfov}
+              onChange={(e) => handleZoomChange(170 - parseInt(e.target.value))}
+              className="w-24 md:w-48 h-1 bg-white/20 rounded-lg appearance-none force-cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:rounded-full hover:[&::-webkit-slider-thumb]:bg-[#FF442B] [&::-webkit-slider-thumb]:transition-colors"
+            />
+
+            <button
+              onClick={() => handleZoomChange(Math.max(50, hfov - 10))}
+              className="text-white hover:text-[#FF442B] transition-colors p-1 force-cursor-pointer"
+            >
+              <ZoomIn size={18} />
+            </button>
+
+            <div className="w-px h-6 bg-white/20 mx-1 md:mx-2" />
+
+            <button
+              onClick={handleFullscreen}
+              onMouseEnter={() => setLabel("")}
+              className="text-white hover:text-[#FF442B] transition-colors ml-1 p-1 force-cursor-pointer"
+            >
+              <Maximize size={18} />
+            </button>
+          </div>
         </div>
       </section>
 

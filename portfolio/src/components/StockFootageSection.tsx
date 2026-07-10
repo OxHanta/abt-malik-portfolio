@@ -5,18 +5,18 @@ import { VideoPlayer } from "@/components/VideoPlayer";
 
 const PREVIEW_CLIPS = [
   {
-    id: 2,
-    title: "Tokyo Streets By Night",
-    src: "https://assets.mixkit.co/videos/preview/mixkit-downtown-tokyo-by-night-39726-large.mp4",
-    poster: "https://images.unsplash.com/photo-1540959733332-eab4deceeaf7?q=80&w=1200&auto=format&fit=crop",
-    description: "Highly saturated neon traffic trails."
+    id: 1,
+    title: "Wizkid — Greater Lagos Concert",
+    src: "https://res.cloudinary.com/dba2kof3v/video/upload/v1783638852/DJI_0487_1_hutdlp.mp4",
+    poster: "https://res.cloudinary.com/dba2kof3v/video/upload/v1783638852/DJI_0487_1_hutdlp.jpg",
+    description: "Aerial drone coverage of Wizkid performing at the Greater Lagos concert."
   },
   {
-    id: 3,
-    title: "Coniferous Canopy",
-    src: "https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-thick-forest-43105-large.mp4",
-    poster: "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1200&auto=format&fit=crop",
-    description: "Slow sweeping glide above pine forests."
+    id: 2,
+    title: "Raw to Edited",
+    src: "https://res.cloudinary.com/dba2kof3v/video/upload/v1783638482/Edited_1_fhr1z8.mp4",
+    poster: "https://res.cloudinary.com/dba2kof3v/video/upload/v1783638482/Edited_1_fhr1z8.jpg",
+    description: "A before and after clip showcasing the raw drone footage to finished edit."
   }
 ];
 
