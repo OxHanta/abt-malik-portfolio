@@ -24,13 +24,38 @@ export function Contact() {
 
   const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    toast({
-      title: "Message Sent",
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    });
-    reset();
-    setIsSubmitting(false);
+    try {
+      // TODO: Replace YOUR_FORM_ID with your actual Formspree ID
+      const response = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      });
+      
+      if (response.ok) {
+        toast({
+          title: "Message Sent",
+          description: "Thank you for reaching out. I'll get back to you soon.",
+        });
+        reset();
+      } else {
+        toast({
+          title: "Error",
+          description: "Something went wrong. Please try again.",
+          variant: "destructive"
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -132,9 +157,8 @@ export function Contact() {
               >
                 <option value="" disabled style={{ background: "#0D0D0D" }}>Select a subject</option>
                 <option value="design" style={{ background: "#0D0D0D" }}>Design</option>
-                <option value="motion" style={{ background: "#0D0D0D" }}>Motion & Video</option>
+                <option value="drone" style={{ background: "#0D0D0D" }}>Drone</option>
                 <option value="branding" style={{ background: "#0D0D0D" }}>Branding</option>
-                <option value="other" style={{ background: "#0D0D0D" }}>Other</option>
               </select>
               {errors.subject && <span className="text-[#FF442B] text-xs">{errors.subject.message}</span>}
             </div>

@@ -14,53 +14,23 @@ type Album = {
 // Mock data for the albums
 const ALBUMS: Album[] = [
   {
-    id: "events",
-    title: "Events",
-    coverImage: "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2071&auto=format&fit=crop",
-    photoCount: 4,
-    photos: [
-      { src: "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2071&auto=format&fit=crop", alt: "Event 1", caption: "Events · Concert" },
-      { src: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2070&auto=format&fit=crop", alt: "Event 2", caption: "Events · Festival" },
-      { src: "https://images.unsplash.com/photo-1540039155733-d7696d4ebc59?q=80&w=1974&auto=format&fit=crop", alt: "Event 3", caption: "Events · Live Show" },
-      { src: "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=2070&auto=format&fit=crop", alt: "Event 4", caption: "Events · Party" },
-    ],
-  },
-  {
     id: "city",
     title: "City",
-    coverImage: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2071&auto=format&fit=crop",
-    photoCount: 3,
+    coverImage: "https://res.cloudinary.com/dba2kof3v/image/upload/v1777849818/malik-buraimoh-EMjpo0YjHPw-unsplash_bhm6f7.jpg",
+    photoCount: 1,
     photos: [
-      { src: "https://res.cloudinary.com/dba2kof3v/image/upload/v1777849818/malik-buraimoh-EMjpo0YjHPw-unsplash_bhm6f7.jpg", alt: "Nature 1", caption: "City · Victoria Island, Lagos" },
-      { src: "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?q=80&w=2070&auto=format&fit=crop", alt: "Nature 2", caption: "Nature · Mountains" },
-      { src: "https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=80&w=2070&auto=format&fit=crop", alt: "Nature 3", caption: "Nature · Valley" },
+      { src: "https://res.cloudinary.com/dba2kof3v/image/upload/v1777849818/malik-buraimoh-EMjpo0YjHPw-unsplash_bhm6f7.jpg", alt: "City 1", caption: "City · Victoria Island, Lagos" },
     ],
   },
   {
     id: "real-estate",
     title: "Real Estate",
-    coverImage: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075&auto=format&fit=crop",
-    photoCount: 4,
+    coverImage: "https://res.cloudinary.com/dba2kof3v/image/upload/v1777849467/p3_l57yec.jpg",
+    photoCount: 2,
     photos: [
       { src: "https://res.cloudinary.com/dba2kof3v/image/upload/v1777849467/p3_l57yec.jpg", alt: "Real Estate 1", caption: "Real Estate · Lagos Continental Hotel" },
       { src: "https://res.cloudinary.com/dba2kof3v/image/upload/v1777849469/p6_nh0r74.jpg", alt: "Real Estate 2", caption: "Real Estate · Lagos Water Corporation" },
-      { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop", alt: "Real Estate 3", caption: "Real Estate · Modern" },
-      { src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2070&auto=format&fit=crop", alt: "Real Estate 4", caption: "Real Estate · Backyard" },
     ],
-  },
-  {
-    id: "placeholder-1",
-    title: "Coming Soon",
-    coverImage: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1964&auto=format&fit=crop",
-    photoCount: 0,
-    photos: [],
-  },
-  {
-    id: "placeholder-2",
-    title: "Coming Soon",
-    coverImage: "https://images.unsplash.com/photo-1550859492-d5da9d8e45f3?q=80&w=2070&auto=format&fit=crop",
-    photoCount: 0,
-    photos: [],
   },
 ];
 

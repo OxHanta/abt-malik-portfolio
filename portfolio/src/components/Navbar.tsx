@@ -9,6 +9,7 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [location, setLocation] = useLocation();
   const lastY = useRef(0);
+  const isNavigating = useRef(false);
 
   const isHome = location === "/";
 
@@ -18,7 +19,7 @@ export function Navbar() {
       setIsScrolled(y > 20);
 
       // hide when scrolling down past 80px, show when scrolling up
-      if (y > lastY.current && y > 80) {
+      if (y > lastY.current && y > 80 && !isNavigating.current) {
         setHidden(true);
       } else {
         setHidden(false);
@@ -38,23 +39,36 @@ export function Navbar() {
 
   const contactLink = { name: "Contact", href: isHome ? "#contact" : "/#contact", isHash: true };
 
+  const handleNavClick = () => {
+    isNavigating.current = true;
+    setTimeout(() => {
+      isNavigating.current = false;
+    }, 1000); // prevent hiding for 1 second
+  };
+
   const scrollToTop = () => {
+    handleNavClick();
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const linkClass = "font-['DM_Mono'] text-[11px] uppercase tracking-widest text-white hover:opacity-60 transition-opacity cursor-pointer";
 
   const renderLink = (link: { name: string; href: string; isHash: boolean }, className: string, onClick?: () => void) => {
+    const handleClick = () => {
+      handleNavClick();
+      if (onClick) onClick();
+    };
+
     if (link.isHash && isHome) {
       return (
-        <a key={link.name} href={link.href} className={className} onClick={onClick}>
+        <a key={link.name} href={link.href} className={className} onClick={handleClick}>
           {link.name}
         </a>
       );
     }
     return (
       <Link key={link.name} href={link.href}>
-        <span className={className} onClick={onClick}>
+        <span className={className} onClick={handleClick}>
           {link.name}
         </span>
       </Link>
