@@ -34,18 +34,41 @@ const DRONE_PHOTOS = [
   },
   {
     id: 4,
+    title: "Lagos Continental Hotel",
+    src: "https://res.cloudinary.com/dba2kof3v/image/upload/v1783637049/LC_btvr1c.jpg",
+    aspect: "aspect-[4/3]",
+    caption: "The Lagos Continental Hotel towering over the skyline."
+  },
+  {
+    id: 5,
+    title: "Blue Line Metro & National Theatre",
+    src: "https://res.cloudinary.com/dba2kof3v/image/upload/v1783707196/Train_2_jgyqfz.jpg",
+    aspect: "aspect-[3/2]",
+    caption: "Aerial view of Lagos city showcasing the Blue Line metro train with the iconic National Theatre standing proudly in the background."
+  },
+
+
+  {
+    id: 6,
+    title: "Victoria Island at Night",
+    src: "https://res.cloudinary.com/dba2kof3v/image/upload/v1783715547/Ozimbadwe_night_nd2wgy.jpg",
+    aspect: "aspect-[4/3]",
+    caption: "The Ozimbadwe waterfront lit up at night, showcasing the vibrant Victoria Island skyline reflecting across the Lagos Lagoon."
+  },
+  {
+    id: 7,
+    title: "Lagos Blue Line Metro",
+    src: "https://res.cloudinary.com/dba2kof3v/image/upload/v1783715482/Train_e7fji9.jpg",
+    aspect: "aspect-[16/10]",
+    caption: "Aerial view of Lagos city featuring the Blue Line metro train gliding through the urban landscape, a landmark in the city's modern transit infrastructure."
+  },
+  {
+    id: 8,
     title: "National Theater",
     src: "https://res.cloudinary.com/dba2kof3v/image/upload/v1783636939/national_nps2b5.jpg",
     aspect: "aspect-[16/10]",
     caption: "Iconic aerial view of the National Theater."
   },
-  {
-    id: 5,
-    title: "Lagos Continental Hotel",
-    src: "https://res.cloudinary.com/dba2kof3v/image/upload/v1783637049/LC_btvr1c.jpg",
-    aspect: "aspect-[4/3]",
-    caption: "The Lagos Continental Hotel towering over the skyline."
-  }
 ];
 
 const LIGHTBOX_IMAGES: LightboxImage[] = DRONE_PHOTOS.map((photo) => ({

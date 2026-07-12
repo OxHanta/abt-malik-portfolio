@@ -6,7 +6,7 @@ import { VideoPlayer } from "@/components/VideoPlayer";
 const PREVIEW_CLIPS = [
   {
     id: 1,
-    title: "Wizkid — Greater Lagos Concert",
+    title: "[Raw] Wizkid — Greater Lagos Concert",
     src: "https://res.cloudinary.com/dba2kof3v/video/upload/v1783638852/DJI_0487_1_hutdlp.mp4",
     poster: "https://res.cloudinary.com/dba2kof3v/video/upload/v1783638852/DJI_0487_1_hutdlp.jpg",
     description: "Aerial drone coverage of Wizkid performing at the Greater Lagos concert."

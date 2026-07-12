@@ -1,24 +1,46 @@
 export interface Project {
-  id: number;
-  title: string;
-  date: string;
-  category: string;
-  img: string;
-  client: string;
-  role: string;
-  services: string[];
-  description: string;
-  challenge: string;
-  solution: string;
-  gallery?: string[];
-  link?: string;
-  socialEmbeds?: string[];
-  youtubeEmbeds?: string[];
+    id: number;
+    title: string;
+    date: string;
+    category: string;
+    img: string;
+    client: string;
+    role: string;
+    services: string[];
+    description: string;
+    challenge: string;
+    solution: string;
+    gallery?: string[];
+    link?: string;
+    socialEmbeds?: string[];
+    youtubeEmbeds?: string[];
 }
 
 export const PROJECTS: Project[] = [
     {
         id: 1,
+        title: "Lagos Water Corporation",
+        date: "2025",
+        category: "Social Media Design",
+        img: "https://res.cloudinary.com/dba2kof3v/image/upload/v1783891866/lwc_toorzg.jpg",
+        client: "Lagos Water Corporation",
+        role: "Designer",
+        services: ["Social Media Post"],
+        description: "Social Media Post design for Lagos Water Corporation.",
+        challenge: "Creating engaging social media content for public awareness.",
+        solution: "Designed visually appealing posts to convey the message effectively.",
+        gallery: [],
+        socialEmbeds: [
+            "https://www.instagram.com/p/Dap5TW8K4LM",
+            "https://www.instagram.com/p/DXywSuLDIft",
+            "https://www.instagram.com/p/DXraVakDBrf",
+            "https://www.instagram.com/p/C-lVc35t0Hu",
+            "https://www.instagram.com/reel/DB3VJK3Nr0A/",
+            "https://www.instagram.com/p/DWT5AS2DDvK/"
+        ]
+    },
+    {
+        id: 2,
         title: "Teo Ignis",
         date: "Dec 2025",
         category: "Social Media Design",
@@ -39,7 +61,7 @@ export const PROJECTS: Project[] = [
         ]
     },
     {
-        id: 2,
+        id: 3,
         title: "Ojah",
         date: "Oct 2024",
         category: "Logo Design · Branding",
@@ -64,7 +86,7 @@ export const PROJECTS: Project[] = [
         ]
     },
     {
-        id: 3,
+        id: 4,
         title: "Burbles",
         date: "Nov 2024",
         category: "Media · Branding · Web Design",
@@ -81,7 +103,7 @@ export const PROJECTS: Project[] = [
         ]
     },
     {
-        id: 4,
+        id: 5,
         title: "Social Video Portfolio",
         date: "Ongoing",
         category: "Video Editing",

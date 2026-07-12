@@ -5,21 +5,21 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 const TESTIMONIALS = [
   {
     id: 1,
-    quote: "Malik transformed our brand identity completely. The new design language perfectly captures our vision and has significantly improved our user engagement.",
-    author: "Maya Lopez",
-    title: "CEO, Fundwizz",
+    quote: "Malik has been an awesome graphic designer for me for about 6/7 years now. He’s super detailed, takes to direction and puts initiative as well. I’ve also referred him to a couple of my friends and colleagues who have said amazing things about his work",
+    author: "Lola Genesis",
+    title: "Creator, Founder",
   },
   {
     id: 2,
-    quote: "Working with Malik was a seamless experience. His attention to detail and strategic approach helped us launch our product weeks ahead of schedule.",
-    author: "David Chen",
-    title: "Founder, TechFlow",
+    quote: "Malik transformed our brand identity completely. The new design language perfectly captures our vision and has significantly improved our user engagement.",
+    author: "Damilola",
+    title: "Founder, Ojah",
   },
   {
     id: 3,
     quote: "An exceptional creative who truly understands how to balance aesthetic beauty with functional usability. I highly recommend Malik for any digital project.",
-    author: "Sarah Jenkins",
-    title: "Marketing Director, Horizon",
+    author: "Olamilekan",
+    title: "Digital Creator",
   },
 ];
 
@@ -92,9 +92,8 @@ export function Testimonials() {
               <button
                 key={i}
                 onClick={() => setCurrent(i)}
-                className={`h-[2px] transition-all duration-300 ${
-                  i === current ? "w-8 bg-[#FF442B]" : "w-4 bg-white/20"
-                }`}
+                className={`h-[2px] transition-all duration-300 ${i === current ? "w-8 bg-[#FF442B]" : "w-4 bg-white/20"
+                  }`}
               />
             ))}
           </div>

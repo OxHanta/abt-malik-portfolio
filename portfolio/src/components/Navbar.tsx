@@ -30,7 +30,6 @@ export function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "/", isHash: false },
     { name: "About", href: isHome ? "#about" : "/#about", isHash: true },
     { name: "Projects", href: isHome ? "#projects" : "/#projects", isHash: true },
     { name: "Aerials", href: isHome ? "#aerials" : "/#aerials", isHash: true },
@@ -38,6 +37,10 @@ export function Navbar() {
   ];
 
   const contactLink = { name: "Contact", href: isHome ? "#contact" : "/#contact", isHash: true };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   const linkClass = "font-['DM_Mono'] text-[11px] uppercase tracking-widest text-white hover:opacity-60 transition-opacity cursor-pointer";
 
@@ -81,6 +84,7 @@ export function Navbar() {
                 className="font-['DM_Mono'] text-[11px] uppercase tracking-widest text-white hover:opacity-60 transition-opacity cursor-pointer inline-block"
                 whileTap={{ y: 4, opacity: 0.6 }}
                 transition={{ duration: 0.15, ease: "easeOut" }}
+                onClick={isHome ? scrollToTop : undefined}
               >
                 Abt Malik
               </motion.span>
