@@ -210,23 +210,23 @@ export function Hero() {
             {(isMobile ? ([
               // Mobile: 2 above text, 3 below — all fitted within 390px screen
               // [src,          w,   h,    left,   top,    tX,     tY,      initRot, persp, delay]
-              ["malik-2.png", 108, 116, "2%", "24%", "0%", "0%", -20, 700, 0],
-              ["malik-1.png", 105, 113, "57%", "20%", "0%", "0%", 18, 900, 0.07],
-              ["malik-5.png", 105, 113, "2%", "58%", "0%", "0%", 20, 850, 0.12],
-              ["malik-6.png", 105, 113, "57%", "58%", "0%", "0%", -18, 800, 0.17],
-              ["malik-3.png", 105, 113, "30%", "70%", "-50%", "0%", -16, 800, 0.22],
+              ["https://res.cloudinary.com/dba2kof3v/image/upload/v1783893625/malik-2_rw3fgc.png", 108, 116, "2%", "24%", "0%", "0%", -20, 700, 0],
+              ["https://res.cloudinary.com/dba2kof3v/image/upload/v1783893625/malik-1_to1tui.png", 105, 113, "57%", "20%", "0%", "0%", 18, 900, 0.07],
+              ["https://res.cloudinary.com/dba2kof3v/image/upload/v1783893625/malik-5_rxvjl0.png", 105, 113, "2%", "58%", "0%", "0%", 20, 850, 0.12],
+              ["https://res.cloudinary.com/dba2kof3v/image/upload/v1783893626/malik-6_kv05lx.png", 105, 113, "57%", "58%", "0%", "0%", -18, 800, 0.17],
+              ["https://res.cloudinary.com/dba2kof3v/image/upload/v1783893627/malik-3_nf5o46.png", 105, 113, "30%", "70%", "-50%", "0%", -16, 800, 0.22],
             ] as const) : ([
               // Desktop: full size
               // [src,          w,   h,   left,   top,    tX,      tY,      initRot, persp, delay]
-              ["malik-2.png", 155, 168, "8%", "44%", "0%", "-50%", -22, 700, 0],
-              ["malik-1.png", 150, 162, "52%", "14%", "-50%", "0%", 18, 900, 0.07],
-              ["malik-3.png", 150, 162, "52%", "74%", "-50%", "0%", -16, 800, 0.12],
-              ["malik-5.png", 148, 160, "9%", "74%", "0%", "0%", 20, 850, 0.17],
-              ["malik-6.png", 148, 160, "88%", "48%", "-50%", "-50%", -18, 800, 0.22],
+              ["https://res.cloudinary.com/dba2kof3v/image/upload/v1783893625/malik-2_rw3fgc.png", 155, 168, "8%", "44%", "0%", "-50%", -22, 700, 0],
+              ["https://res.cloudinary.com/dba2kof3v/image/upload/v1783893625/malik-1_to1tui.png", 150, 162, "52%", "14%", "-50%", "0%", 18, 900, 0.07],
+              ["https://res.cloudinary.com/dba2kof3v/image/upload/v1783893627/malik-3_nf5o46.png", 150, 162, "52%", "74%", "-50%", "0%", -16, 800, 0.12],
+              ["https://res.cloudinary.com/dba2kof3v/image/upload/v1783893625/malik-5_rxvjl0.png", 148, 160, "9%", "74%", "0%", "0%", 20, 850, 0.17],
+              ["https://res.cloudinary.com/dba2kof3v/image/upload/v1783893626/malik-6_kv05lx.png", 148, 160, "88%", "48%", "-50%", "-50%", -18, 800, 0.22],
             ] as const)).map(([src, w, h, left, top, tX, tY, initRot, persp, delay]) => (
               <motion.img
                 key={src}
-                src={`${import.meta.env.BASE_URL}images/${src}`}
+                src={src}
                 alt="Malik"
                 draggable={false}
                 className="absolute z-20 pointer-events-none rounded-2xl object-cover"
