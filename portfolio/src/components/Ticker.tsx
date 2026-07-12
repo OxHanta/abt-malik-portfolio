@@ -9,6 +9,7 @@ import {
   useVelocity,
   wrap,
 } from "framer-motion";
+import { Star } from "lucide-react";
 
 const SKILLS = [
   "Graphic Designer",
@@ -57,12 +58,9 @@ export function Ticker() {
             >
               {skill}
             </span>
-            <img
-              src={`${import.meta.env.BASE_URL}images/star-sep.png`}
-              alt="★"
-              className="w-4 h-4 shrink-0"
-              style={{ filter: "hue-rotate(-20deg) saturate(3) brightness(1.2)" }}
-              draggable={false}
+            <Star
+              className="w-4 h-4 shrink-0 text-[#FF442B]"
+              strokeWidth={3}
             />
           </span>
         ))}
