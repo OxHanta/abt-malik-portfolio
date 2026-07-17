@@ -94,14 +94,14 @@ export function Navbar() {
         <div className="max-w-7xl mx-auto px-6 md:px-10 flex justify-between items-center">
           <div className="flex-1">
             <Link href="/">
-              <motion.span
-                className="font-['DM_Mono'] text-[11px] uppercase tracking-widest text-white hover:opacity-60 transition-opacity cursor-pointer inline-block"
+              <motion.img
+                src="https://res.cloudinary.com/dba2kof3v/image/upload/v1784249206/Abt_2x_swixpi.png"
+                alt="Abt Malik Logo"
+                className="h-6 w-auto hover:opacity-60 transition-opacity cursor-pointer inline-block"
                 whileTap={{ y: 4, opacity: 0.6 }}
                 transition={{ duration: 0.15, ease: "easeOut" }}
                 onClick={isHome ? scrollToTop : undefined}
-              >
-                Abt Malik
-              </motion.span>
+              />
             </Link>
           </div>
 
